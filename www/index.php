@@ -1,2 +1,3 @@
 <?php
-phpinfo();
+ header("Location:dashboard/index.php");
+?>

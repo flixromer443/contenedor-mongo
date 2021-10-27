@@ -2,12 +2,13 @@ version: '3.1'
 services:
   db:
     image: mysql:5.7
-   # restart: always
+    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
     volumes: 
       - ./dump/:/var/lib/mysql
   php-apache:
+    restart: always
     build: ./
     links:
       - db:mysqldb
@@ -25,6 +26,7 @@ services:
     links:
       - db:mysqldb
   mongodb_container:
+    restart: always
     image: mongo:latest
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
